@@ -107,7 +107,7 @@
   padding-top:20px;
 }
 
-.bumberSticker {
+.bumberSticker  {
   padding-top:11px;
 }
 
@@ -121,7 +121,6 @@
 } 
 
 /* Larger Screen */
-
 @media screen and (min-width: 800px) {
   .reviews {
     display: grid;
