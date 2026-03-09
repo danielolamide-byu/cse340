@@ -3,4 +3,144 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
+}
+ 
+/* Header. */
+#top-header {
+  display: grid;
+  grid-template-columns: 3fr 2fr;  
+  gap: 55%;
+  padding: 20px;
+}
+
+.siteName {
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.tools {
+  text-align: right;
+  color: black;
+  font-size: 10px;
+}
+
+ /* Navigation. */
+.navItems {
+  display: flex;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+ padding: 10px;
+ font-size: 18px;
+ background-color: rgb(1, 29, 29);
+ list-style-type: none;
+ text-align: center;
+ justify-content: center;
+ gap: 10%;
+}
+
+/******* Body ***************/
+
+.welcome {
+  margin: 20px 0 0 10px;
+}
+
+.heroImg {
+  width: 95%;
+}
+
+.carInfo {
+  position: absolute;
+  margin: 10px 0 0 20px;
+  color: rgb(3, 3, 123);
+  background: rgb(197, 197, 197);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.ownButton {
+  padding: 10px;
+  background: rgb(16, 81, 81);
+  font-weight: 900;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Reviews. */
+.reviews {
+  margin: 30px 0 0 10px;
+}
+
+.rev {
+  margin: 20px 0 0 0;
+  font-size: 15px;
+}
+
+/* Upgrades */
+#upgrades {
+  margin: 30px 0 0 10px;
+}
+
+.upgradeMain {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin: 20px  0 0 0;
+}
+
+.capacitor {
+  padding-top:20px;
+}
+
+.bumberSticker {
+  padding-top:11px;
+}
+
+.hubCap, .flame {
+  margin-right: 10px;
+  padding-top: 3px;
+}
+
+.capacitor, .flame, .bumberSticker, .hubCap {
+  background-color: aqua;
+} 
+
+/* Larger Screen */
+
+@media screen and (min-width: 800px) {
+  .reviews {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+  }
+
+  #upgrades {
+  margin: 0 0 0 10px;
+    }
+
+    .rev {
+      margin: 20px 0 0 0;
+      font-size: 20px;
+    }
+    
+.heroImg {
+  width: 70%;
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.carInfo {
+  position: absolute;
+left: 20%;
+top: 200px;
+  color: rgb(3, 3, 123);
+  background: rgb(197, 197, 197);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 }
