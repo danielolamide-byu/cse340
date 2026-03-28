@@ -12,10 +12,8 @@ WHERE account_id = 1
 
 
 UPDATE public.inventory
-SET inv_description = 'a huge interior'
-WHERE inv_model = 'Hummer'
-
-
+SET inv_description = REPLACE(inv_description, 'the small interiors', 'a huge interior')
+WHERE inv_model = 'Hummer';
 
 SELECT inv_make, inv_model, classification_name FROM public.inventory
 JOIN public.classification ON inventory.classification_id = classification.classification_id

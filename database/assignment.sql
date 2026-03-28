@@ -246,9 +246,11 @@ VALUES   (
 
 
 
+
 UPDATE public.inventory
-SET inv_description = 'a huge interior'
+SET inv_description = REPLACE(inv_description, 'the small interiors', 'a huge interior')
 WHERE inv_model = 'Hummer';
+
 
 
 
