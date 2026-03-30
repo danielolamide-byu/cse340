@@ -5,11 +5,11 @@
 /* ***********************
  * Require Statements
  *************************/
-const express = require("express")
- const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
-const app = express()
-const static = require("./routes/static")
+const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const env = require("dotenv").config();
+const app = express();
+const static = require("./routes/static");
 const utilities = require("./utilities");
 
 const baseController = require("./controllers/baseController");
@@ -31,13 +31,13 @@ app.set("layout", "./layouts/layout");
 /* ***********************
  * Routes
  *************************/
-app.use(static)
+app.use(static);
 
 // Index route.
 app.get("/", baseController.buildHome);
 
 // Inventory routes
-app.use("/inv", inventoryRoute)
+app.use("/inv", inventoryRoute);
 
 // 500 Error.
 app.use("/error", errorRoute);
@@ -92,4 +92,4 @@ const host = process.env.HOST
  *************************/
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
-})
+});
