@@ -1,0 +1,48 @@
+
+
+
+
+
+<% if (title) { %>
+<h1 class="add"><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+    <%- messages() %>
+
+    
+   <form method="post" class="inventoryForm">
+    
+    <%- list %>
+   <p>Make*</p>
+                <label><input type="text" name="inv_make" required></label>
+                <p>Model*</p>
+                <label><input type="text" name="inv_model" required></label>
+                <p>Year*</p>
+                <label><input type="number" name="inv_year" required></label>
+                <p>Description*</p>
+                <label><input type="text" name="inv_description" required></label>
+                <p>Image*</p>
+                <label><input type="text" name="inv_image" required></label>
+                <p>Thumbnailr*</p>
+                <label><input type="text" name="inv_thumbnail" required></label>
+                <p>Price*</p>
+                <label><input type="number" name="inv_price" required></label>
+                <p>Miles*</p>
+                <label><input type="number" name="inv_miles" required></label>
+                <p>Color*</p>
+                <label><input type="text" name="inv_color" required></label>
+                
+                             
+            
+                <input type="submit" value="Add Inventory" class="submitButton">
+    </form>       

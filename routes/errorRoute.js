@@ -10,7 +10,7 @@ const utilities = require("../utilities");
 
 // Route to build inventory by classification view
 
-router.get("/500", errorController.serverError);
+router.get("/500", utilities.handleErrors(errorController.serverError));
 // router.get("/500", utilities.handleErrors(errorController.serverError));
 
 

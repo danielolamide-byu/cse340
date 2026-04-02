@@ -127,7 +127,7 @@
 
 .ab {
   color: white;
-text-decoration: none;
+  text-decoration: none;
 
 }
 
@@ -189,10 +189,112 @@ justify-content: center;
  }
 
  .des {
+   text-align: center;
+   color: rgb(213, 231, 213);
+   text-decoration: none;
+  }
+  
+  
+  .classificationThumbnail {
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+    /* border-radius: 20px; */
+  }
+  
+  .carsInfo {
+    background-color: rgb(66, 66, 75);
+    border-radius: 20px;
+    height: 250px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border: 3px solid black;
+  }
+  
+  .carsGrid {
+    background-color: rgb(186, 186, 181);
+    border-radius: 5px;
+  }
+
+  /* WEEK 04 */
+
+  .loginForm  {
+  background-color: blue;
+  height: 170px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+form input {
+  padding: 10px;
+  border: 1px solid rgb(0, 255, 30);
+  border-radius: 5px;  
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.password {
+  margin-top: 20px;
+}
+
+.loginButton, .registerButton {
+  padding: 10px;
+  color: beige;
+  background: grey;
+  border: 1px solid blue;
+  border-radius: 5px;
+  margin-left: 7px;
+  width: 100px;
+}
+
+.login, .register, .add {
+    text-align: center;
+}
+
+.reg {
+  margin-top: 10px;
+}
+
+.a, .passRule, .c {
+  color: aliceblue;
+}
+
+/* Register Form */
+.registerForm {
+  background-color: blue;
+  height: 300px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.good-notice {
   text-align: center;
-  color: rgb(213, 231, 213);
-  text-decoration: none;
- }
+  list-style-type: none;
+  color: green;
+  background-color: beige;
+  margin-bottom: 20px;
+}
+
+.notice, .error-notice {
+  display: grid;
+  justify-content: center;
+  list-style-type: none;
+  color: red;
+  background-color: beige;
+  margin: 20px 20px 0 0;
+}
+
+input:required:invalid, input:invalid:focus {
+    background: rgb(246, 214, 214);
+}
+
+input:required:valid {
+  background: rgb(187, 247, 187);
+}
+
+
 
 @media screen and (min-width: 850px) {
   .detailsGrid {
@@ -257,26 +359,4 @@ top: 200px;
 
 }
 
-
-
-.classificationThumbnail {
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 5px;
-  /* border-radius: 20px; */
-}
-
-.carsInfo {
-  background-color: rgb(66, 66, 75);
-  border-radius: 20px;
-  height: 250px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  border: 3px solid black;
-}
-
-.carsGrid {
-  background-color: rgb(186, 186, 181);
-  border-radius: 5px;
-}
 
