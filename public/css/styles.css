@@ -215,7 +215,7 @@
 
   /* WEEK 04 */
 
-  .loginForm  {
+  .loginForm {
   background-color: blue;
   height: 170px;
   width: 50%;
@@ -258,7 +258,7 @@ form input {
 }
 
 /* Register Form */
-.registerForm {
+.registerForm, .updateForm {
   background-color: blue;
   height: 300px;
   width: 50%;
@@ -398,7 +398,25 @@ top: 200px;
   padding: 1px;
   list-style-type: none;
 } 
+}
 
+.greet {
+  color: black;
+  font: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.link {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.outBut {
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.headName {
+  font-size: 15px;
 }
 
 

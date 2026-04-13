@@ -1,0 +1,57 @@
+
+
+
+
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+
+<%- messages() %>
+
+   <form action="/inv/update" method="post" id="updateForm">
+    <span>Name must be alphabetic character without space</span>
+
+   
+   <p>Make*</p>
+                <label><input type="text" name="inv_make" required value="<%- inv_make %>"></label>
+                <p>Model*</p>
+                <label><input type="text" name="inv_model" value="<%-inv_model %>"></label>
+                <p>Year*</p>
+                <label><input type="number" name="inv_year" value="<%-inv_year %>"></label>
+                <p>Description*</p>
+                <label><textarea type="text" name="inv_description"><%-inv_description %></textarea></label>
+                <p>Image*</p>
+                <label><input type="text" name="inv_image" value="<%-inv_image %>"></label>
+                <p>Thumbnailr*</p>
+                <label><input type="text" name="inv_thumbnail" value="<%-inv_thumbnail %>"></label>
+                <p>Price*</p>
+                <label><input type="number" name="inv_price" value="<%-inv_price %>"></label>
+                <p>Miles*</p>
+                <label><input type="number" name="inv_miles" value="<%-inv_miles %>"></label>
+                <p>Color*</p>
+                <label><input type="text" name="inv_color" value="<%-inv_color %>"></label>
+                
+                             
+            
+                <!-- <input type="submit" value="Update Inventory" class="submitButton">/ -->
+                
+                <input type="hidden" name="inv_id"
+<% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+<% } %>>
+
+<input type="hidden" name="classification_id"
+<% if(local.classification_id) { %> value="<%= local.classification_id %>"
+<% } %>>
+
+
+                <button type="submit" name="submit" id="button">Update Inventory</button>
+
+    </form>       
+
+    <script src="../../public/js/inv-updade.js"></script>
+
+
+    <!-- <script src="../../public/js/inv-update.js"></script> -->

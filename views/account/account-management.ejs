@@ -1,0 +1,20 @@
+
+
+
+
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+
+<h2 class="greet"><%- greet %></h2>
+<br>
+<h4 class="greet">You are Logged in.</h4>
+<br>
+<%-acountUpdatePath %>
+<br><br>
+
