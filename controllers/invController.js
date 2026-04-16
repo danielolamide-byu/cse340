@@ -34,6 +34,35 @@ invCont.getSingleVehicle = async function (req, res, next) {
   })
 };
 
+invCont.getSingleDreamCar = async function (req, res, next) {
+  const dreamcar_id = req.params.dreamCarId
+  const data = await invModel.getDreamVehicleById(dreamcar_id)
+  // const grids = await utilities.details(data)
+  let nav = await utilities.getNav()
+  // const className = data[0].inv_make
+  res.render("./inventory/dream-car", {
+    // title: className + " vehicle", 
+    title: "Dream Car",
+    nav,
+    data,
+  })
+};
+
+invCont.getAllDreamCars = async function (req, res, next) {
+  const data = await invModel.getDreamCar()
+  const grid = await utilities.buildDreamGrid(data)
+  console.log(data);
+  // const grids = await utilities.details(data)
+  let nav = await utilities.getNav()
+  // const className = data[0].inv_make/
+  res.render("./inventory/dream-cars", {
+    // title: className + " vehicle",
+    title: "Dream Car",
+    nav,
+    grid,
+  })
+}
+
 invCont.getInventoryJSON = async (req, res, next) => {
   const classification_id = parseInt(req.params.classification_id)
   const invData = await invModel.getInventoryByClassificationId(classification_id)
@@ -167,6 +196,7 @@ invCont.vehicleManagement = async function(req, res, next) {
     });
 };
 
+
 invCont.classificationForm = async function (req, res, next) {
   let nav = await utilities.getNav()
   res.render("inventory/add-classification", {
@@ -272,14 +302,12 @@ invCont.deleteInventory = async function (req, res, next) {
   const inv_id = parseInt(req.params.inv_id)
   const del = await invModel.deleteInventory(inv_id);
   const nav = await utilities.getNav();
-res.render("inventory/add-inventory", {
+res.render("/inventory/add-inventory", {
     title: 'Add Inventory',
     nav,
     list,
     errors: null
   })
- 
-
 };
 
 
@@ -296,6 +324,53 @@ invCont.getInventoryJSON = async (req, res, next) => {
     next(new Error("No data returned"))
   }
 };
+
+invCont.dreamCarManagement = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("./inventory/dream-car-manage", {
+    title: "Manage Dream Car.",
+    nav
+  })
+}
+
+ invCont.dreamInventoryForm = async function(req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("./inventory/add-dream-inventory", {
+    title: 'Add Dream Inventory',
+    nav,
+    errors: null
+  })
+};
+
+
+ invCont.addDreamInventory = async function(req, res, next) {
+  let nav = await utilities.getNav()
+  
+      const { dreamcar_make, dreamcar_model, dreamcar_year, dreamcar_description, dreamcar_image, dreamcar_thumbnail, dreamcar_price, dreamcar_miles, dreamcar_color } = req.body
+    
+      const addResult = await invModel.addDreamInventory(
+        dreamcar_make, dreamcar_model, dreamcar_year, dreamcar_description, dreamcar_image, dreamcar_thumbnail, dreamcar_price, dreamcar_miles, dreamcar_color
+  )
+  
+    if (addResult) {
+        req.flash(
+      "good-notice",
+      `Congratulations, you added a new inventory item.`)
+        res.redirect("/dreamcar/manage", 201, {
+        title: "Dream Car Management.",
+        nav,
+        });
+      
+    } else {
+        req.flash("error-notice", "Sorry, the attempt to add a new inventory item failed.")
+        res.status(500).render("./inventory/add-dream-inventory", {
+        title: "Add Dream Inventory",
+          nav,
+        errors: null
+    })
+    }
+};
+
 
 
 

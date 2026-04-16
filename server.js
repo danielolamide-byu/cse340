@@ -28,6 +28,7 @@ const inventoryRoute = require("./routes/inventoryRoute");
 const accountRoute = require("./routes/accountRoute");
 const errorRoute = require("./routes/errorRoute");
 const inventoryManagementRoute = require("./routes/inventoryManagementRoute");
+const dreamCarRoute = require("./routes/dreamCarRoute");
 
 
 /* ***********************
@@ -89,6 +90,9 @@ app.use("/account", accountRoute);
 
 // Management Route.
 app.use("/inv", inventoryManagementRoute);
+
+//  Drea Car.
+app.use("/dreamcar", dreamCarRoute);
 
 
 // 500 Error.

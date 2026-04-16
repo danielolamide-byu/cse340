@@ -6,4 +6,4 @@ function quad(a, b, c) {
     return result;
 };
 
-quad(1, -3, -4);
+quad(2, 8, -2);

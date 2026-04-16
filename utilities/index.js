@@ -25,7 +25,9 @@ Util.getNav = async function (req, res, next) {
   })
   list += "</ul>"
   return list
-}
+};
+
+
 
 /* **************************************
 * Build the classification view HTML
@@ -67,6 +69,45 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+Util.buildDreamGrid = async function(data){
+  let grid
+  grid += '<div class="carsGrid">' 
+  if(data.length > 0){
+    
+    data.forEach(vehicle => { 
+      grid += '<div class="carsInfo">' 
+
+
+      grid += '<a href="/inv/detail/' + vehicle.dreamcar_id 
+      + '" title="View ' + vehicle.dreamcar_make + ' '+ vehicle.inv_model 
+      + ' details"><img class="classificationThumbnail" src="' + vehicle.dreamcar_thumbnail +'" alt="Image of '+ vehicle.dreamcar_make + ' ' + vehicle.dreamcar_model 
+      +' on CSE Motors" /></a>'
+      grid += '<div class="namePrice">'
+      grid += '<hr />'
+      grid += '<h2 class="des">'
+      grid += '<a class="des" href="../../inv/detail/' + vehicle.dreamcar_id +'" title="View ' 
+      + vehicle.dreamcar_make + ' ' + vehicle.dreamcar_model + ' details">'
+      grid += vehicle.dreamcar_make + ' ' + vehicle.dreamcar_model
+      grid += '</h2>'
+      grid += '<h4 class="des">' + '<span>$' 
+        + new Intl.NumberFormat('en-US').format(vehicle.idreamcar_price) + '</span>' + '</h4>'
+      grid += '</a>'
+      
+      // grid += vehicle.inv_description + '</span>'
+      grid += '</div>'
+
+      grid += '</div>'
+      
+    })
+    grid += '</div>'
+  
+  } else { 
+    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return grid
+}
+
 //  WEEK 03
 Util.details = async function (data) {
   let grid

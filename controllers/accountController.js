@@ -241,6 +241,35 @@ async function updateAccount(req, res) {
   }
 };
 
+async function updatePassword(req, res, next) {
+  const { account_id, account_password } = req.body
+
+   let hashedPassword
+  try {
+    // regular password and cost (salt is generated automatically)
+    hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("error-notice", 'Sorry, there was an error processing the registration.')
+    res.status(500).render("account/edit-account", {
+      title: "Edit Account",
+      nav,
+      errors: null,
+    })
+    };
+
+  const updateResult = await accountModel.updatePassword(account_id, hashedPassword)
+  if (!updateResult) {
+    console.log("Can't Update Password.");
+    req.flash("error-notice", 'Password not Successfully Updated.')
+
+  } else {
+    console.log("Account Password Updated.");
+    req.flash("good-notice", 'Password Successfully Updated.')
+    return res.redirect("/account/");
+  }
+  next();
+}
+
 // Logout
 async function logout(req, res, next) {
   req.session.destroy((err) => {
@@ -272,4 +301,4 @@ async function logout(req, res, next) {
 };
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, decodeToken, buildManagement, editAccountInformation, updateAccount, logout, requiresAdmin };
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, decodeToken, buildManagement, editAccountInformation, updateAccount, logout, requiresAdmin, updatePassword };

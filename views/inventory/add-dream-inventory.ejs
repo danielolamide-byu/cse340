@@ -1,0 +1,48 @@
+
+
+
+
+
+
+<% if (title) { %>
+<h1 class="add"><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+    <%- messages() %>
+
+    
+   <form method="post" class="inventoryForm">
+    
+   <p>Make*</p>
+                <label><input type="text" name="dreamcar_make" required></label>
+                <p>Model*</p>
+                <label><input type="text" name="dreamcar_model" required></label>
+                <p>Year*</p>
+                <label><input type="number" name="dreamcar_year" required></label>
+                <p>Description*</p>
+                <label><input type="text" name="dreamcar_description" required></label>
+                <p>Image*</p>
+                <label><input type="text" name="dreamcar_image" required></label>
+                <p>Thumbnailr*</p>
+                <label><input type="text" name="dreamcar_thumbnail" required></label>
+                <p>Price*</p>
+                <label><input type="number" name="dreamcar_price" required></label>
+                <p>Miles*</p>
+                <label><input type="number" name="dreamcar_miles" required></label>
+                <p>Color*</p>
+                <label><input type="text" name="dreamcar_color" required></label>
+                
+                             
+            
+                <input type="submit" value="Add Dream Inventory" class="submitButton">
+    </form>       

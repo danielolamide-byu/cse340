@@ -1,0 +1,15 @@
+
+
+
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+
+
+<%- messages() %>
+<br>
+
+<a href="/dreamcar/add-dream-inventory" class="addInventory">Add New Dream Car</a>

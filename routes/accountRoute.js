@@ -37,6 +37,11 @@ router.post(
     utilities.handleErrors(accountController.updateAccount)
 );
 
+router.post(
+    "/update-password",
+    utilities.handleErrors(accountController.updatePassword)
+);
+
 //  Processes the Logout.
 router.post("/logout", utilities.handleErrors(accountController.logout));
 

@@ -59,6 +59,14 @@ async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_
         console.log("Error in The Database", error);
     }
 };
+async function addDreamInventory(dreamcar_make, dreamcar_model, dreamcar_year, dreamcar_description, dreamcar_image, dreamcar_thumbnail, dreamcar_price, dreamcar_miles, dreamcar_color) {
+      try {
+        const info = "INSERT INTO public.dreamcar(dreamcar_make, dreamcar_model, dreamcar_year, dreamcar_description, dreamcar_image, dreamcar_thumbnail, dreamcar_price, dreamcar_miles, dreamcar_color) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *"
+        return await pool.query(info, [dreamcar_make, dreamcar_model, dreamcar_year, dreamcar_description, dreamcar_image, dreamcar_thumbnail, dreamcar_price, dreamcar_miles, dreamcar_color])
+    } catch (error) {
+        console.log("Error in The Database while addding Dream Car.", error);
+    }
+}
 
 /* ***************************
  *  Update Inventory Data
@@ -107,4 +115,29 @@ async function deleteInventory(inv_id) {
         console.log("Unable to Delete.Thank you.", error);
     }
 }
-module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById, addClassification, addInventory, updateInventory, deleteInventory };
+
+async function getDreamVehicleById(dreamcar_id) {
+    try {
+        const info = await pool.query(
+            `SELECT * FROM public.dreamcar
+              WHERE dreamcar_id = $1`,
+            [dreamcar_id]
+        )
+        return info.rows
+    } catch(error) {
+        console.error("Big Error in Getting Dream Car." + error)
+    }
+};
+
+async function getDreamCar() {
+    try {
+        const sql = 'SELECT * FROM public.dreamcar'
+        const result = await pool.query(sql)
+        return result.rows;
+    } catch (error) {
+        console.log("Cannot get all Dream Cars.", error)
+    }
+};
+
+
+module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById, addClassification, addInventory, updateInventory, deleteInventory, getDreamVehicleById, getDreamCar, addDreamInventory };
